@@ -1,0 +1,198 @@
+/*-- scss:defaults --*/
+/*--  --*/
+
+:root {
+  
+  --dark-blue: #446cc2;
+  --bright-blue: #6f9af7;
+  --dark-red: #8b1515;
+  --bright-red: #B71C1C;
+
+ /*  Otter Farben
+    --blue: #00c4e6
+    --red: #CA225E;
+ */
+}
+
+
+$dark-blue: #446cc2;
+$bright-blue: #6f9af7;
+$dark-red: #8b1515;
+$bright-red: #d92121;
+
+/*
+$code-block-bg-alpha: -8; 
+$code-block-bg: #2c0707; 
+$code-block-border-color: #000000;
+$code-color: #5f5f5f;
+
+$code-block-border-left: false;
+$code-block-border-left-size: 7px;
+$code-block-border-left-color: $dark-red;
+$callout-border-width: 5px;
+*/
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.one-line-statements {
+  text-align: center !important;
+  font-size: 50px !important;
+}
+
+.inline-red-highlight {
+  color:var(--bright-red);
+  font-weight:700;
+}
+.images-shadow {
+  box-shadow: 12px 12px 15px rgba(0,0,0,0.25), 0px 0px 15px rgba(0,0,0,0.25);
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+.images-blurr {
+  box-shadow: inset 10px 10px 80px white;
+}
+
+$code-block-bg: #f2f2f2;
+$code-block-font-size: 	0.60em;
+
+$link-color: $dark-red;
+$presentation-font-size-root: 30px;
+
+$code-color: $bright-red; /*-- inline code --*/
+
+/*-- scss:rules --*/
+
+.reveal section h1 {
+  color: $dark-red;
+  font-size: 2.70em;
+}
+
+#title-slide .subtitle, div.reveal div.slides section.quarto-title-block .subtitle {
+  margin-bottom: 2.5rem;
+  font-size: 1.50em;
+}
+
+.reveal section h2 {
+  color: $dark-red;
+  font-size: 3.00em;
+}
+.reveal section h3 {
+  font-size: 1.80em;
+}
+
+.section-exercise {
+}
+
+div.slides section:not(.title-slide):not(#title-slide):not(.stack) {
+  padding-top: 0em;
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 12px;
+  max-height: 0rem !important; /* Zero length picture!!!*/
+  height: 100%;
+  width: auto;
+  z-index: 2;
+  /*margin-bottom: 5%;
+  margin-right: 2%;*/
+}
+
+.reveal .header {
+    position: absolute;
+    top: 0.3em;
+    left: 1em;
+    font-size: 0.5em;
+    color: gray;
+}
+
+.reveal .header-logo img {
+  margin: var(--header-margin);
+  padding-left: 1vw;
+  padding-top: 5px;
+  height: 100%;
+  width: auto;
+  max-width: max(70px, 10vw);
+  max-height: max(70px, 10vh);
+}
+
+.reveal .progress {
+  height: 5px;
+}
+
+.reveal .footer  > * {
+  margin-top: 0;
+  margin-bottom: 0;
+   /*margin-bottom: -0.07cm; same hight as slide-numbers*/
+  margin-right: 1.5%;
+  text-align: right;
+  margin-right: 80px;
+  /*
+  */
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--bright-red);
+  text-shadow: none;
+}
+Element {
+  display: block;
+}
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: $bright-red;
+  font-weight: 700;
+}
+
+
+.reveal .slide-number {
+  bottom: 16px !important;
+  right: 10px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+div.reveal.has-logo div.slide-number {
+  grid-area: sn;
+  top: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+  padding: 5px 5px 5px 5px;
+  justify-self: center;
+  font-size: 18px;
+  min-width: 80px; 
+}
+
+
+
+
+
+/* Progress line*/
+
+.reveal .progress {
+  height: 11px;
+}
+
+/* Menü Button*/
+.reveal .slide-menu-button .fas::before, .reveal .slide-chalkboard-buttons .fas::before, .slide-menu-wrapper .slide-menu-toolbar .fas::before {
+  display: inline-block;
+  height: 2.2rem;
+  width: 2.2rem;
+  content: "";
+  vertical-align: 0.3em !important;
+  background-repeat: no-repeat;
+  background-size: 2.2rem 2.2rem;
+}
+
+

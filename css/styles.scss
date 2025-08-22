@@ -1,0 +1,86 @@
+/*-- scss:defaults --*/
+/*--  --*/
+$dark-blue: #446cc2;
+$bright-blue: #6f9af7;
+$dark-red: #8b1515;
+$bright-red: #d92121;
+
+/*
+$code-block-bg-alpha: -8; 
+$code-block-bg: #2c0707; 
+$code-block-border-color: #000000;
+$code-color: #5f5f5f;
+
+$code-block-border-left: false;
+$code-block-border-left-size: 7px;
+$code-block-border-left-color: $dark-red;
+$callout-border-width: 5px;
+*/
+
+
+.exercise-style {
+  color:white;
+  text-align:center;
+  background-color:#8b1515;
+  height: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.solution-style {
+  color:white;
+  text-align:center;
+  background-color:#274e13;
+  height: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.one-line-statements {
+  text-align: center !important;
+  font-size: 50px !important;
+}
+.images-shadow {
+  box-shadow: 12px 12px 15px rgba(0,0,0,0.25), 0px 0px 15px rgba(0,0,0,0.25);
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+.images-blurr {
+  box-shadow: inset 10px 10px 80px white;
+}
+
+$code-block-bg: #f2f2f2;
+$code-block-font-size: 	0.60em;
+
+$link-color: $dark-red;
+$presentation-font-size-root: 30px;
+
+$code-color: $bright-red; /*-- inline code --*/
+
+/*-- scss:rules --*/
+
+.reveal section h1 {
+  color: $dark-red;
+  font-size: 3.00em;
+}
+.reveal section h2 {
+  color: $dark-red;
+  font-size: 3.00em;
+}
+.reveal section h3 {
+  font-size: 1.80em;
+}
+
+.section-exercise {
+}
+
+
+
+
+
+
+

@@ -1,11 +1,547 @@
 ---
-title: "r_you_serious"
+title: "R you serious? Teaching R programming to psych students"
+subtitle: "*ECVP 2025*" #European Conference on Visual Perception
+
+format:
+  revealjs:
+    theme: [default, css/MS_clean.scss]
+    toc: false
+    toc-depth: 3
+    toc-title: "Contens"
+    number-sections: false
+    number-depth: 1
+    footer: "ECVP | R you serious | Snijder-Steinhilber"
+    include-after-body: no_footer_on_title_page.html
+    chalkboard: false
+    slide-number: true
+    highlight-style: a11y
+    code-link: false
+    preview-links: true
+    embed-resources: true
+    slide-level: 2
+    # logo: images/white_space.png
+    # header: "fgme2023 -- Steinhilber"
+    # header-logo: images/logo.png
+    hide-from-titleSlide: "text"
+author:
+  - name: Meike Snijder-Steinhilber
+    orcid: 0000-0002-7144-2100
+    email: Meike.Steinhilber@uni-mainz.de
+    affiliations: University of Mainz
+filters:
+- reveal-header # https://github.com/shafayetShafee/reveal-header
+- css/appendix.lua
+- css/custom_header.lua
+    #css: [syntax-highlight.css]
+execute:
+  echo: true
+  warning: true
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ```{r}
-1 + 1
+#| echo: false
+#| output: false
+#| include: false
+library(papaja)
+library(trackdown)
+library(knitr)
+library(dplyr)
+library(kableExtra)
+library(ggplot2) 
+library(glue)
+library(latex2exp)
+library(purrr)
+library(readr)
+library(magrittr)
+library(magick)
+
+palette <- "RdYlBu"  #"Dark2"
+green <- "#69b3a2"
+blue <- "#2c7bb6"  #"#404080"
+light_blue <- "#abd9e9"
+red <- 	"#d7191c" #"#ca0020" "#CD2626" "#8B0000"
+light_red <- "#fca4a4" # "red"
+orange <- "#fdae61"
+yellow <- "#ffffbf"
+
+theme_set(theme_bw(base_size = 12))
+base_size <- 18
+
+n_rep <- 10000
+distribution <- "normal"
+dist <- gsub("_", " ", distribution)
+length_f_exp <- 3
+
+linesep <- function(x,y=character()){
+  if (!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('',x[length(x)]-1),'\\addlinespace',y))  
+}
+
+# knitr::opts_knit$set(root.dir = glue::glue("{rprojroot::find_rstudio_root_file()}/presentation/"))
 ```
+
+
+::: set-custom-header
+Introduction
+:::
+# Introduction {background-color="var(--background)"}
+
+## My backgorund
+
+## Why Are We Here Today?
+
+**Goals**  
+
+- Exchange experiences, solutions, and challenges  
+
+- Share some of my own lessons from teaching R 
+
+- Explore possible approaches for your teaching hurdles  
+
+**Limitations**  
+
+- The workshop is shaped strongly by my own experiences and by my lab’s context 
+
+- Every course setting is unique, and your teaching style may differ from mine
+
+- This is the first round of this workshop
+
+
+## Course structure
+
+
+## Challenges in Teaching R
+
+**Low student motivation due to**
+
+- Lack of intrinsic interest in learning a programming language  
+
+- Little to no prior experience with programming  
+
+- Unclear understanding of why this is a relevant skill  
+
+- Expectation that it will be difficult to learn  
+
+**Structural challenges**
+
+- Students have very heterogeneous background knowledge  
+
+- Inconsistent use of statistical software across labs and courses  
+
+- Limited time available to teach R  
+
+- Large number of students in each course
+
+- Missing resources to provide individual feedback 
+
+
+
+## Getting to know each other
+
+**Please share briefly:**
+
+- Your name, university, and current role
+
+- What you hope to gain from this workshop  
+
+- One challenge (big or small) you or your lab experience when teaching R  
+
+::: set-custom-header
+(My) Mindset
+:::
+# Mindset{background-color="var(--background)"}
+
+## Personal lessons learned I
+
+**Structure**
+
+- Set realistic teaching goals --- and stick to them
+
+- Recognize that seminar structure strongly shapes student mindset
+
+- Provide sufficient support: resources, exercises, and constructive feedback 
+
+**Communication**
+
+- Be transparent and straightforward in communication  
+
+- You set the tone --- be aware of your influence  
+
+- When reacting to background issues, explain openly when and why  
+
+
+## Personal lessons learned II
+
+**Feedback & change:**
+
+- Refine the course each semester (step by step)
+
+- Try new approaches; don’t repeat what didn’t work
+
+- Always seek feedback (from the whole class, in presence)
+
+- Feedback can hurt, share your experience with others
+
+- Take feedback seriously, but always consider the context  
+
+  - What caused it? What can I do to improve the situation?  
+  
+- Small adjustments can make a big difference  
+
+## Teaching R means teaching a language
+
+- **Syntax = grammar**  
+- **Functions = vocabulary** 
+- Practice, practise, practise, ....  
+
+- Do not forget to teach **all** of the basics
+
+- **Balance the three key skills:**
+  - Reading code  
+  - Debugging (learning to help yourself)  
+  - Writing code  
+
+- **Design exercises with intention:** 
+  - Order tasks by difficulty and prior knowledge  
+  - Match exercise types to specific skills  
+  - Mix very simple with more complex tasks  
+  - Scaffold step by step towards realistic, real-world problems  
+
+## Programming means failing
+
+> *“Experienced programmers don’t fail less — they just recover faster.”*  
+
+- **Normalize failure**
+  - e.g., debug code live, mention common errors
+  
+- **Encourage self-help strategies first** 
+  - Demonstrate practical debugging techniques  
+  - How do I read package documentations?
+  
+  
+## Increasing student motivation
+
+- **Connect to relevance**
+  - Show exciting examples of what students will be able to do by the end of the course 
+  - Highlight how R is needed for projects, research, and the curriculum  
+  - Show the broader potential of R beyond statistics  
+  - Use diagnostic or test questions to give students with prior knowledge realistic feedback on their level  
+
+- **Make it "fun"**
+  - Playful or surprising examples
+    - e.g., art with ggplot, scatterplot dinosaurs
+  - Interesting themes (even fun column names can help)  
+
+- **Support motivation through feedback**
+  - Timely, constructive, and encouraging feedback  
+
+## R basics
+
+**Foundations**  
+- Variables  
+
+- [Data types]{.inline-red-highlight} 
+
+- Comments vs. code  
+
+- [Missing values]{.inline-red-highlight}
+
+- [Functions & arguments]{.inline-red-highlight} 
+
+- Reading and writing data sets  
+
+**Programming skills**  
+- Flexible vs. hard coding  
+- Control structures (loops, if–else)  
+- Understand error messages
+- debugging skills
+
+**Working with R**  
+- R projects  
+- R scripts & R Markdown  
+- R packages (*Who writes R packages?*) 
+
+**base R vs dplyr**
+
+**visualisations in ggplot**
+
+And THEN, what you actually want to teach ... 😉
+
+::: set-custom-header
+Approaches and resources
+:::
+# Approaches and resources{background-color="var(--background)"}
+
+
+## Simulate your own data sets
+
+Tailor your data sets to exactly what you need.
+
+**Useful functions:**  
+- `rnorm()` – generate normal-distributed values  
+- `runif()` – generate uniform random values  
+- `sample()` – draw random samples  
+- `rbinom()` – simulate binary outcomes  
+- `rexp()`, `rgamma()`, etc. – simulate from other distributions  
+- `expand.grid()` – create all combinations of factors 
+
+
+**useful packages:**
+
+- [faux]("https://scienceverse.github.io/faux/")
+- [fabricatr]("https://declaredesign.org/r/fabricatr/")
+- [messy]("https://nrennie.rbind.io/messy/")
+- [truffle]("https://mmmdata.io/posts/2025/08/creating-messy-datasets-for-teaching-purposes-with-truffle/") --- not on CRAN
+
+
+## Examples: A quick data set
+
+```{r}
+library(dplyr)
+
+set.seed(42)
+
+n <- 80
+df <- tibble(
+  subject = 1:n,
+  age = sample(18:70, n, replace = TRUE),
+  height  = rnorm(n, mean = 170, sd = 10),
+  group   = sample(c("control", "treatment"), n, replace = TRUE)
+) %>%
+  mutate(
+    score = rnorm(n, mean = ifelse(group == "treatment", 75, 70), sd = 5),
+    response = rnorm(n, mean = 50, sd = 10)
+  )
+
+df %>% head()
+
+```
+
+## Correlated data
+
+```{r}
+library("MASS")
+set.seed(123)
+
+# Define the mean vector
+mean_vector <- c(0, 2, 1.8)
+
+# Define the covariance matrix
+cov_matrix <- matrix(c(
+  1.00, 0.22, 0.10,
+  0.22, 1.00, 0.80,
+  0.10, 0.80, 1.00
+), nrow = 3, byrow = TRUE)
+
+# Generate n correlated random numbers
+n <- 200
+correlated_data <- mvrnorm(n, mu = mean_vector, Sigma = cov_matrix)
+
+# Convert to a data frame and add column names
+correlated_data <- data.frame(correlated_data)
+names(correlated_data) <- c("fitness_level", "sport", "health")
+
+# Calculate the correlations
+round(cor(correlated_data), 2)
+```
+
+
+## Constructive Alignment
+
+> *Teaching, learning, and assessment should all point in the same direction.*
+
+**Intended learning outcomes**  
+- What should students be able to do? 
+  - What specific R skills should students be able to demonstrate?  
+  - e.g., import a dataset, run a regression, visualize results
+
+**Teaching & learning activities**  
+- How will they practice and engage with the content? 
+- e.g., exercises at home, debugging code from other students, projects with real data) 
+
+**Assessment**  
+- How will they demonstrate achievement of the outcomes?  
+- e.g., open book exams, oral explanations, ...
+
+
+## Constructive Alignment – Background
+
+- Developed by John Biggs (1996)  
+- Based on the idea that students **construct their own learning**  
+- The role of the teacher: **design learning environments** that support this process  
+- Alignment means:  
+  - Learning outcomes define what students should achieve  
+  - Teaching activities give opportunities to practice  
+  - Assessment measures achievement of outcomes 
+
+## Alternative exams
+
+**Open-book exams**  
+- Debug or correct given code  
+- Extend existing scripts with new functionality  
+- Explain what code does (or why it fails)  
+- Interpret error messages  
+- Use R’s help system to solve a task with a new function  
+
+**Data science contest**  
+- Students have to analyze a (simulated) data set
+  - use *personas* to create variability
+  - teaches also the meaning of QRPs & p-hacking
+- Students compete to produce the best talk/analysis/visualization
+- Students have to detect the "bad sheeps"
+- Encourages creativity, real-world problem-solving, and communication of results
+
+
+## Flipped Classroom – The Concept
+
+- Traditional order is reversed:  
+  - Students first engage with new material at home (videos, readings, tutorials)  
+  - Class time is used for practice, discussion, problem-solving  
+- Emphasizes **active learning** rather than passive listening  
+- Teacher role shifts from “lecturer” to **facilitator/coach**  
+
+## Flipped Classroom – When & Why It Works
+
+**Useful when:**  
+- Content can be learned at different paces 
+- Class time is valuable for **collaboration and feedback** 
+
+**Success factors:**
+  - Clear, well-structured pre-class materials  
+  - Accountability (e.g., small quizzes, short reflections)  
+  - In-class activities tightly linked to pre-class work
+
+## Flipped Classroom – Challenges
+
+- **Students may be unprepared in class**
+- **High effort for instructors:**
+  - Preparing quality pre-class materials (texts, videos, exercises)  
+  - Designing effective in-class activities can be difficult 
+
+- **Requires a cultural shift:**  
+  - Students expect “being taught” in class  
+  - Teachers must let go of content delivery
+  - Teachers mus be "strict"
+
+
+## ChatGPT as a student
+
+**Opportunities**  
+- Coding assistant
+  - explanations, examples, debugging, feedback 
+- Practice problems, synthetic datasets  
+- Compare and critique AI vs. own solutions
+
+**Dangers**
+- Cheating
+- AI usage prevents learning
+- No critical thinking
+
+**Ground rules** 
+- Specific to the seminar
+  - e.g., only valid if explicitly allowed, only for explanations
+- Only allow solutions taught in the course
+
+**Explicit usage**
+- Use AI for some homework explicitly
+  - Warning: only in later stages
+- Live demos in class
+  - evaluating AI answers  
+- Critical thinking
+  - correctness, efficiency, relevance 
+
+
+## ChatGPT as a teacher
+
+- Efficiency first
+  - save time for what matters most (teaching & feedback)  
+- Friendlier, more constructive feedback phrasing  
+- Generate exercises, code examples, explanations  
+- Alternative wordings of concepts (multiple ways to explain)  
+- Adapt exercises to different levels (beginner → advanced)
+- ...
+
+
+
+
+## learnr
+
+## Otter as an example
+
+
+::: set-custom-header
+Workshop
+:::
+# Workshop {background-color="var(--background)"}
+
+
+::: set-custom-header
+Feedback
+:::
+# Feedback {background-color="var(--background)"}
+
+
+
+
+
+
+::: set-custom-header
+:::
+
+## Contact
+
+::::: columns
+::: {.column width="60%"}
+<br/> **Software:**
+
+-   [Otter](https://otter.uni-frankfurt.de/Grundlagen/) (Shiny App)
+
+-   [sprtt](https://meikesteinhilber.github.io/sprtt/) (CRAN Package)
+
+<br/><br/> <br/>
+
+**Contact:**
+
+E-Mail: meike.steinhilber\@uni-mainz.de
+
+GitHub: [MeikeSteinhilber](https://github.com/MeikeSteinhilber)
+
+Homepage: [https://methoden.amd.psychologie.uni-mainz.de/steinhilber/](https://methoden.amd.psychologie.uni-mainz.de/steinhilber/)
+
+:::
+
+::: {.column width="40%" left="50%"}
+<br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/> <br/>
+:::
+:::::
+
+![](images/Meike_Snijder_Steinhilber2025_1.jpg){.absolute top="20%" left="65%" width="200"}
+![](images/logo.png){.absolute top="20%" left="35%" width="150"}
+
+::: set-custom-header
+Appendix
+:::
+
+# Appendix {.appendix background-color="var(--background)"}
+
+##  {#slide-id1 .no-title data-menu-title="SPRT"}
+
+![](images/sprt_formulas.png)
+
+
+
+::::: columns
+::: {.column width="50%"}
+**in the past:**
+
+-   [post-hoc analyses of QRP]{.inline-red-highlight}
+:::
+
+::: {.fragment .column width="50%"}
+**SPRTs:**
+
+
+:::
+:::::
