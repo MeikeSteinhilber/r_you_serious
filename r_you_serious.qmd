@@ -82,6 +82,15 @@ linesep <- function(x,y=character()){
 # knitr::opts_knit$set(root.dir = glue::glue("{rprojroot::find_rstudio_root_file()}/presentation/"))
 ```
 
+
+## Orga
+
+![](images/orga.png){.stretch}
+
+## Wifi
+
+![](images/wifi.jpg){.stretch}
+
 ::: set-custom-header
 Introduction
 :::
@@ -693,7 +702,7 @@ learnr
 ## Concept
 
 ::::: columns
-::: {.column width="45%"}
+::: {.column width="50%"}
 
 - [R package for interactive, self-paced tutorials]{.inline-red-highlight}
 
@@ -714,7 +723,7 @@ learnr
 
 - [visit homepage](%22https://rstudio.github.io/learnr/%22)
 :::
-::: {.column width="55%"}
+::: {.column width="50%"}
 
 ![](images/otter_example.png){.images-shadow width=90%}
 :::
@@ -854,7 +863,7 @@ Workshop
 
 # Workshop {background-color="var(--background)"}
 
-Oriented on Design Thinking
+Inspired by Design Thinking
 
 ## Overview
 
@@ -895,7 +904,7 @@ Oriented on Design Thinking
 
 *4-5 persons in one group*
 
-- **Brainstorming alone**: (3-5 min)
+- **Alone: Brainstorming**: (3-5 min)
 
   - make notes of your struggles
   - What is the worst of all these problems to you?
@@ -905,36 +914,56 @@ Oriented on Design Thinking
    
 :::
 ::: {.column width="50%"}
+<br>
+
 - **Pitch your problem to your group** (5-8 mins)
 
   - 30-60s per problem
   - What is the problem?
   - Why does the problem matter?
-
+<br>
 - **The group picks one problem** (2 mins)
 
-  - everyone has two votes
-  - the most picket problem wins
+  - Everyone has two votes
+  - The most picked problem wins
   
 :::
 :::::
 
   
-## Understand the problem
+## Understand the problem better
+
+- **Group: 5 Whys** (5 min)
+
+  - The "problem-giver" explains the problem in one sentence
+  - The group asks 5 times **Why?**
+  - e.g., "I have the problem X" 
+    - "Why do you have the problem X?" 
+    - "Because of Y" 
+    - "Why do you do Y?"
+    - ...
+  
+
+- **Alone: Make the problem worse** (3 min)
+  - What could be done to make the problem worse?
+  - take notes by yourself
+
+## Explore solutions
 
 - **15% solutions** (20 mins)
 
-  - Question: [**What can you already do without additional resources or external influences?**]{.inline-red-highlight}
-  
+  - **What can you already do without additional resources or external influences?**
   - Brainstorming alone: everyone takes notes by themselves (5 mins)
   - Share your solutions to the group & ask questions (15 mins)
   
-- **The problem giver picks 1-3 best solutions** (1 min)
+<br>
 
-  - prepare your final notes and pick a group speaker
+- **The "problem-giver" picks 1-3 best solutions** (1 min)
+
+  - Prepare your final notes and pick a group speaker
   - Ever group has 3 min to share their picket problem and the picked solutions
   
-## Share your process
+## Share your problem & solutions
 
 3 mins per groups
 
