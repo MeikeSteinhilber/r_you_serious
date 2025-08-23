@@ -75,7 +75,7 @@ $presentation-heading-color: $jet !default;
 $presentation-heading-font-weight: lighter;
 //$presentation-heading-line-height: 2;
 //$presentation-block-margin: 28px;
-$presentation-font-size-root: 20px;
+$presentation-font-size-root: 24px;
 
 // colors
 //$body-bg: #f0f1eb !default;
@@ -432,3 +432,18 @@ section:not(.title-slide) h2::after {
   margin-bottom: 0;
   font-size: 14px;
 }
+
+
+/* Make code blocks scale with body text */
+pre code,
+div.sourceCode {
+  font-size: 1.2em;   /* slightly smaller than regular text, adjust as needed */
+  line-height: 1.4;    /* improve readability */
+}
+
+/* Inline code snippets inside text */
+p code, li code, span.code {
+  font-size: 1.2em;   /* keep consistent with block code */
+}
+
+
