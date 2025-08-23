@@ -36,6 +36,7 @@ filters:
 execute:
   echo: true
   warning: true
+server: shiny 
 ---
 
 
@@ -55,6 +56,7 @@ library(purrr)
 library(readr)
 library(magrittr)
 library(magick)
+library(learnr)
 
 palette <- "RdYlBu"  #"Dark2"
 green <- "#69b3a2"
@@ -102,11 +104,11 @@ Introduction
 
 **Limitations**  
 
-- The workshop is shaped strongly by my own experiences and by my lab’s context 
+- Shaped strongly by my own experiences and by my lab’s context 
 
-- Every course setting is unique, and your teaching style may differ from mine
+- Course settings & teaching styles are unique
 
-- This is the first round of this workshop
+- First round of this workshop 🎉
 
 
 ## Course structure
@@ -118,7 +120,7 @@ Introduction
 
 - Lack of intrinsic interest in learning a programming language  
 
-- Little to no prior experience with programming  
+- No prior experience with programming  
 
 - Unclear understanding of why this is a relevant skill  
 
@@ -188,26 +190,40 @@ Introduction
 
   - What caused it? What can I do to improve the situation?  
   
-- Small adjustments can make a big difference  
+- [Small adjustments can make a big difference]{.inline-red-highlight}
 
 ## Teaching R means teaching a language
+
+::::: columns
+::: {.column width="50%"}
 
 - **Syntax = grammar**  
 - **Functions = vocabulary** 
 - Practice, practise, practise, ....  
-
 - Do not forget to teach **all** of the basics
+:::
 
-- **Balance the three key skills:**
-  - Reading code  
-  - Debugging (learning to help yourself)  
-  - Writing code  
+::: {.fragment .column width="50%"}
+**Balance the three key skills:**
 
-- **Design exercises with intention:** 
-  - Order tasks by difficulty and prior knowledge  
-  - Match exercise types to specific skills  
-  - Mix very simple with more complex tasks  
-  - Scaffold step by step towards realistic, real-world problems  
+- Reading code  
+- Debugging (learning to help yourself)  
+- Writing code  
+
+**Design exercises with intention:** 
+
+- Order tasks by difficulty and prior knowledge  
+- Match exercise types to specific skills  
+- Mix very simple with more complex tasks  
+- Scaffold step by step towards realistic, real-world problems
+:::
+:::::
+
+
+
+
+
+  
 
 ## Programming means failing
 
@@ -235,39 +251,61 @@ Introduction
   - Interesting themes (even fun column names can help)  
 
 - **Support motivation through feedback**
-  - Timely, constructive, and encouraging feedback  
+  - Timely, constructive, and encouraging feedback
+
+## Trade off teaching improvements vs work-load
+
+- **little time & resources:** start with small improvements
+
+- **change the system instead of your workload**
+  - ask for an student assistance
+  - collaborate with other teachers
+  - teaching funds
+  - new concepts: students feedback the code from each other
+  
+- **external (free & online) resources:**
+  - AI, software package, online tutorial, ...
 
 ## R basics
 
-**Foundations**  
+::::: columns
+::: {.column width="50%"}
+**Foundations**
+
 - Variables  
-
-- [Data types]{.inline-red-highlight} 
-
+- Data types
 - Comments vs. code  
-
-- [Missing values]{.inline-red-highlight}
-
-- [Functions & arguments]{.inline-red-highlight} 
-
+- Missing values (important for error messages)
+- Functions & arguments
 - Reading and writing data sets  
 
 **Programming skills**  
+
 - Flexible vs. hard coding  
 - Control structures (loops, if–else)  
 - Understand error messages
 - debugging skills
+:::
 
-**Working with R**  
+::: {.fragment .column width="50%"}
+**Working with R** 
+
 - R projects  
 - R scripts & R Markdown  
 - R packages (*Who writes R packages?*) 
 
-**base R vs dplyr**
+**Tidyverse**
 
-**visualisations in ggplot**
+- dplyr
+- ggplot2
 
 And THEN, what you actually want to teach ... 😉
+:::
+:::::
+
+
+
+
 
 ::: set-custom-header
 Approaches and resources
@@ -296,13 +334,11 @@ Tailor your data sets to exactly what you need.
 - [truffle]("https://mmmdata.io/posts/2025/08/creating-messy-datasets-for-teaching-purposes-with-truffle/") --- not on CRAN
 
 
-## Examples: A quick data set
+## Example: A quick data set
 
 ```{r}
 library(dplyr)
-
 set.seed(42)
-
 n <- 80
 df <- tibble(
   subject = 1:n,
@@ -319,9 +355,9 @@ df %>% head()
 
 ```
 
-## Correlated data
+## Example: Correlated data
 
-```{r}
+```{r, message=FALSE}
 library("MASS")
 set.seed(123)
 
@@ -378,14 +414,16 @@ round(cor(correlated_data), 2)
 
 ## Alternative exams
 
-**Open-book exams**  
+**Open-book exams** 
+
 - Debug or correct given code  
 - Extend existing scripts with new functionality  
 - Explain what code does (or why it fails)  
 - Interpret error messages  
 - Use R’s help system to solve a task with a new function  
 
-**Data science contest**  
+**Data science contest** 
+
 - Students have to analyze a (simulated) data set
   - use *personas* to create variability
   - teaches also the meaning of QRPs & p-hacking
@@ -396,14 +434,16 @@ round(cor(correlated_data), 2)
 
 ## Flipped Classroom – The Concept
 
-- Traditional order is reversed:  
+::::: columns
+::: {.column width="50%"}
+- **Traditional order is reversed:**  
   - Students first engage with new material at home (videos, readings, tutorials)  
   - Class time is used for practice, discussion, problem-solving  
 - Emphasizes **active learning** rather than passive listening  
-- Teacher role shifts from “lecturer” to **facilitator/coach**  
+- Teacher role shifts from “lecturer” to **facilitator/coach** 
+:::
 
-## Flipped Classroom – When & Why It Works
-
+::: {.fragment .column width="50%"}
 **Useful when:**  
 - Content can be learned at different paces 
 - Class time is valuable for **collaboration and feedback** 
@@ -412,6 +452,9 @@ round(cor(correlated_data), 2)
   - Clear, well-structured pre-class materials  
   - Accountability (e.g., small quizzes, short reflections)  
   - In-class activities tightly linked to pre-class work
+:::
+:::::
+
 
 ## Flipped Classroom – Challenges
 
@@ -423,28 +466,51 @@ round(cor(correlated_data), 2)
 - **Requires a cultural shift:**  
   - Students expect “being taught” in class  
   - Teachers must let go of content delivery
-  - Teachers mus be "strict"
+  - Teachers must be "strict"
 
+## Teaching materials
 
-## ChatGPT as a student
+**Online Books**
+
+- [R for Data Science]("https://r4ds.hadley.nz/")
+- [R Cookbook]("https://rc2e.com/")
+- [ggplot2]("https://ggplot2-book.org/")
+- [Learning Statistics with R]("https://learningstatisticswithr.com/")
+- [Advanced R]("https://adv-r.hadley.nz/")
+- [R Packages]("https://r-pkgs.org/")
+- [Our own lab book]("https://amd-lab.github.io/R-Kurs-Buch/")
+...
+
+**Free tutorials**
+
+- [Otter](https://meikesteinhilber.github.io/otter/)
+- [swirl]("https://swirlstats.com/")
+
+- [A website with more resources](https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/)
+
+## ChatGPT --- students
 
 **Opportunities**  
+
 - Coding assistant
   - explanations, examples, debugging, feedback 
 - Practice problems, synthetic datasets  
 - Compare and critique AI vs. own solutions
 
 **Dangers**
+
 - Cheating
 - AI usage prevents learning
 - No critical thinking
 
 **Ground rules** 
+
 - Specific to the seminar
   - e.g., only valid if explicitly allowed, only for explanations
 - Only allow solutions taught in the course
 
 **Explicit usage**
+
 - Use AI for some homework explicitly
   - Warning: only in later stages
 - Live demos in class
@@ -453,20 +519,104 @@ round(cor(correlated_data), 2)
   - correctness, efficiency, relevance 
 
 
-## ChatGPT as a teacher
+## ChatGPT --- teachers
 
-- Efficiency first
+- **Efficiency first**
   - save time for what matters most (teaching & feedback)  
-- Friendlier, more constructive feedback phrasing  
-- Generate exercises, code examples, explanations  
-- Alternative wordings of concepts (multiple ways to explain)  
-- Adapt exercises to different levels (beginner → advanced)
+- **Friendlier**, more constructive feedback phrasing  
+- **More content**
+  - Generate exercises, code examples, explanations  
+- **Alternative explanations** (multiple ways to explain)  
+- **Adapt exercises** to different levels (beginner vs advanced)
 - ...
 
 
 
 
+## learnr --- concept
+
+- R package for interactive, self-paced tutorials
+- in R Markdown (.Rmd)
+- create you own shiny apps
+  - code exercises
+  - quizzes
+  - hints/solutions
+  - immediate feedback
+- supports flipped classroom
+- increase at home exercises
+- helps with automatic feedback
+
+- [visit homepage]("https://rstudio.github.io/learnr/")
+
+
 ## learnr
+
+**Good for:**
+
+- Lots of (smaller) guided practices
+
+- Many students in class/lecture
+
+- Quick, auto-graded checks
+
+- Pre- or post-class homework
+
+- Heterogeneous student background
+
+
+**Not ideal for**
+
+- Large, complex projects with many valid paths
+
+- Heavy computation or huge datasets
+
+- Assessments needing complex, rich and individual feedback
+
+- No resources for Implementation
+
+## learnr --- simple examples I
+
+[Tutorial on quizzes]("https://learnr-examples.shinyapps.io/quiz_question/#section-basic-question-types")
+
+```{r radio, echo = TRUE, eval=TRUE}
+question_radio(
+  "Is this a good question?",
+  answer("yes", correct = TRUE),
+  answer("no", message = 'This is a good question.')
+)
+```
+## learnr --- simple examples II
+
+```{r radio, echo = TRUE, eval=TRUE}
+question_numeric(
+ "What is pi rounded to 2 digits?",
+ answer(3, message = "Don't forget to use the digits argument"),
+ answer(3.14, correct = TRUE),
+ allow_retry = TRUE,
+ min = 3,
+ max = 4,
+ step = 0.01
+)
+```
+
+## learnr --- simple examples III
+
+```{r checkbox, echo = TRUE, eval=FALSE}
+learnr::question_checkbox(
+  "Select all the toppings that belong on a Margherita Pizza:",
+  answer("tomato", correct = TRUE),
+  answer("mozzarella", correct = TRUE),
+  answer("basil", correct = TRUE),
+  answer("extra virgin olive oil", correct = TRUE),
+  answer("pepperoni", message = "Great topping! ... just not on a Margherita Pizza"),
+  answer("onions"),
+  answer("bacon"),
+  answer("spinach"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  try_again = "Be sure to select all toppings!"
+)
+```
 
 ## Otter as an example
 
@@ -534,14 +684,12 @@ Appendix
 
 ::::: columns
 ::: {.column width="50%"}
-**in the past:**
 
--   [post-hoc analyses of QRP]{.inline-red-highlight}
 :::
 
 ::: {.fragment .column width="50%"}
-**SPRTs:**
-
 
 :::
 :::::
+
+-   [post-hoc analyses of QRP]{.inline-red-highlight}
