@@ -90,7 +90,32 @@ Introduction
 
 ## My backgorund
 
+::::: columns
+::: {.column width="50%"}
+- Visited R classes in psych & computer science
+
+- My R courses
+
+  - R psych course
+  - R data science course
+  - R programming course
+  - Meta science
+  
+- Developed *Otter*: free app to learn R
+  
+- Developed my own R package *sprtt*
+:::
+::: {.column width="50%"}
+![](images/logo.png){width=70%}
+:::
+:::::
+
+
+
 ## Why Are We Here Today?
+
+::::: columns
+::: {.column width="60%"}
 
 [**Goals**]{.inline-red-highlight}
 
@@ -108,7 +133,40 @@ Introduction
 
 -   **First** round of this workshop 🎉
 
+:::
+::: {.column width="40%"}
+![](images/in_progress.jpeg)
+:::
+:::::
+
 ## Course structure
+
+::::: columns
+::: {.column width="50%"}
+<br>
+
+[**Content**]{.inline-red-highlight}
+
+- My personal mindest & lessons learned
+
+- Helpflul approaches & resources
+
+- R package learnr
+
+*~ 10 min break*
+
+[**Problem solving**]{.inline-red-highlight}
+
+- Workshop ~ 60 mins
+
+:::
+::: {.column width="50%"}
+
+![](images/progress.jpeg)
+
+:::
+:::::
+
 
 ## Challenges in Teaching R
 
@@ -143,6 +201,11 @@ Introduction
 -   What you hope to gain from this workshop
 
 -   One challenge (big or small) you or your lab experience when teaching R
+
+![](images/share.png){width=80%}
+
+
+
 
 ::: set-custom-header
 (My) Mindset
@@ -190,8 +253,13 @@ Introduction
 
 ::::: columns
 ::: {.column width="50%"}
+
+<br>
+
 -   Syntax = grammar
 -   Functions = vocabulary
+
+<br>
 
 -   **Practice**, practise, practise, ....
 -   Do not forget to teach **all** of the basics
@@ -222,15 +290,32 @@ Introduction
     -   Demonstrate practical debugging techniques
     -   How do I read package documentations?
 
-## Increasing student motivation
+## Increasing student motivation I
 
-[**Connect to relevance**]{.inline-red-highlight}
+::::: columns
+::: {.column width="60%"}
+[**Relevance**]{.inline-red-highlight}
 
 -   Show examples of what students will be **able to do by the end** of the course
 -   Highlight how **R is needed** for projects, research, and the curriculum
 -   Show the **broader potential** of R beyond statistics
+  - Data Wizzards
+  - Publish your own book, website, tutorial, ...
+  - Create art
 -   Use **diagnostic or test questions** to give students with prior knowledge realistic feedback on their level
-    
+
+:::
+::: {.column width="40%"}
+![](images/art_screenshot.png)
+[https://art.djnavarro.net/gallery/]("https://art.djnavarro.net/gallery/")
+:::
+:::::
+
+
+## Increasing student motivation II
+
+::::: columns
+::: {.column width="50%"}
 [**Make it "fun"**]{.inline-red-highlight}
 
 -   **Playful** or surprising examples
@@ -240,9 +325,20 @@ Introduction
 [**Support motivation through feedback**]{.inline-red-highlight}
 
 -   Timely, constructive, and **encouraging feedback**
+:::
+::: {.column width="50%"}
+![](images/datasaurus.png)
+:::
+:::::
+
+## Share: Increase motivation
+
+![](images/share.png){width=80%}
 
 ## Trade off teaching improvements vs work-load
 
+::::: columns
+::: {.column width="50%"}
 -   **little time & resources:** start with small improvements
 
 -   **change the system instead of your workload**
@@ -255,6 +351,12 @@ Introduction
 -   **external (free & online) resources:**
 
     -   AI, software package, online tutorial, ...
+:::
+::: {.column width="50%"}
+![](images/stress.jpeg)
+:::
+:::::
+
 
 ## R basics
 
@@ -291,7 +393,7 @@ Introduction
 -   dplyr
 -   ggplot2
 
-And THEN, what you actually want to teach ... 😉
+[And THEN, what you actually want to teach ...]{.inline-red-highlight} 😉
 :::
 :::::
 
@@ -316,7 +418,7 @@ Approaches and resources
 - `expand.grid()` – create all combinations of factors
 :::
 
-::: {.fragment .column width="50%"}
+::: {.column width="50%"}
 [**Useful packages:**]{.inline-red-highlight}
 
 -   [faux](%22https://scienceverse.github.io/faux/%22)
@@ -383,16 +485,23 @@ round(cor(correlated_data), 2)
 ```
 
 
+## Share: Your data tips
+
+![](images/share.png){width=80%}
+
 ## Constructive Alignment
 
+::::: columns
+::: {.column width="50%"}
 > *Teaching, learning, and assessment should all point in the same direction.*
 
 [**Intended learning outcomes**]{.inline-red-highlight}
 
 - What should students be able to do?
 - What specific R skills should students be able to demonstrate?
-- e.g., import a dataset, run a regression, visualize results
-
+- e.g., import a dataset, run a regression, read code from others
+:::
+::: {.column width="50%"}
 [**Teaching & learning activities**]{.inline-red-highlight}
 
 - How will they practice and engage with the content?
@@ -402,6 +511,9 @@ round(cor(correlated_data), 2)
 
 - How will they demonstrate achievement of the outcomes?
 - e.g., open book exams, oral explanations, ...
+:::
+:::::
+
 
 ## Constructive Alignment – Background
 
@@ -437,8 +549,11 @@ round(cor(correlated_data), 2)
 :::
 :::::
 
+## Share: Your alternative exams
 
-## Flipped Classroom – The Concept
+![](images/share.png){width=80%}
+
+## Flipped Classroom – The concept
 
 ::::: columns
 ::: {.column width="50%"}
@@ -466,6 +581,11 @@ round(cor(correlated_data), 2)
 
 ## Flipped Classroom – Challenges
 
+::::: columns
+::: {.column width="40%"}
+![](images/grille.jpeg)
+:::
+::: {.fragment .column width="60%"}
 [**Students may be unprepared in class**]{.inline-red-highlight}
 
 [**High effort for instructors:**]{.inline-red-highlight}
@@ -478,6 +598,13 @@ round(cor(correlated_data), 2)
 -   Students expect “being taught” in class
 -   Teachers must let go of content delivery
 -   Teachers must be "strict"
+:::
+:::::
+
+
+## Share: Flipped classroom experience
+
+![](images/share.png){width=80%}
 
 ## Teaching materials
 
@@ -493,7 +620,7 @@ round(cor(correlated_data), 2)
 -   [R Packages](%22https://r-pkgs.org/%22)
 -   [Our own lab book](%22https://amd-lab.github.io/R-Kurs-Buch/%22) ...
 :::
-::: {.fragment .column width="50%"}
+::: {.column width="50%"}
 **Free tutorials**
 
 -   [Otter](https://meikesteinhilber.github.io/otter/)
@@ -505,7 +632,7 @@ round(cor(correlated_data), 2)
 :::::
 
 
-## ChatGPT --- students
+## ChatGPT --- Students
 
 ::::: columns
 ::: {.column width="50%"}
@@ -541,7 +668,7 @@ round(cor(correlated_data), 2)
 :::::
 
 
-## ChatGPT --- teachers
+## ChatGPT --- Teachers
 
 -   **Efficiency first**
     -   save time for what matters most (teaching & feedback)
@@ -552,6 +679,11 @@ round(cor(correlated_data), 2)
 -   **Adapt exercises** to different levels (beginner vs advanced)
 -   ...
 
+
+## Share: Your experience with AI in class
+
+![](images/share.png){width=80%}
+
 ::: set-custom-header
 learnr
 :::
@@ -561,9 +693,7 @@ learnr
 ## Concept
 
 ::::: columns
-::: {.column width="50%"}
-
-<br>
+::: {.column width="45%"}
 
 - [R package for interactive, self-paced tutorials]{.inline-red-highlight}
 
@@ -584,7 +714,7 @@ learnr
 
 - [visit homepage](%22https://rstudio.github.io/learnr/%22)
 :::
-::: {.column width="50%"}
+::: {.column width="55%"}
 
 ![](images/otter_example.png){.images-shadow width=90%}
 :::
@@ -593,7 +723,7 @@ learnr
 
 
 
-## Pros & cons
+## Pros & Cons
 
 ::::: columns
 ::: {.column width="50%"}
@@ -620,7 +750,7 @@ learnr
 
 -   Assessments needing complex, rich and individual feedback
 
--   No resources for Implementation
+-   No resources for implementation
 :::
 :::::
 
@@ -629,11 +759,14 @@ learnr
 
 ![](images/learnr_example.png){.images-shadow}
 
+[Tutorial on quizzes](%22https://learnr-examples.shinyapps.io/quiz_question/#section-basic-question-types%22)
+
 ## Simple examples I
 
 ::::: columns
 ::: {.column width="50%"}
-[Tutorial on quizzes](%22https://learnr-examples.shinyapps.io/quiz_question/#section-basic-question-types%22)
+
+a simple yes or no question 
 
 ```{r radio, echo = TRUE, eval=FALSE}
 question_radio(
@@ -656,6 +789,9 @@ question_radio(
 
 ::::: columns
 ::: {.column width="50%"}
+
+Check a number
+
 ```{r number, echo = TRUE, eval=FALSE}
 question_numeric(
  "What is pi rounded to 2 digits?",
@@ -679,6 +815,9 @@ question_numeric(
 
 ::::: columns
 ::: {.column width="60%"}
+
+Checkboxes 
+
 ```{r checkbox, echo = TRUE, eval=FALSE}
 learnr::question_checkbox(
   "Select all the toppings that belong on a Margherita Pizza:",
@@ -703,7 +842,11 @@ learnr::question_checkbox(
 
 ## Otter as an example
 
+~ 15 mins
+
 [Visit the Otter site]("https://otter.uni-frankfurt.de/")
+
+![](images/logo.png){width=70%}
 
 ::: set-custom-header
 Workshop
@@ -711,11 +854,115 @@ Workshop
 
 # Workshop {background-color="var(--background)"}
 
+Oriented on Design Thinking
+
+## Overview
+
+::::: columns
+::: {.column width="50%"}
+[**Pick the problem**]{.inline-red-highlight}
+
+1. Write down the problem
+
+2. Pitch your problem to your group
+
+3. The group picks one problem
+
+[**Understand the problem**]{.inline-red-highlight}
+
+4. Understand the problem better (5 x Why)
+
+5. Make the problem worse
+:::
+::: {.column width="50%"}
+[**Explore solutions**]{.inline-red-highlight}
+
+6. 15% solutions
+
+7. The problem giver picks 1-3 best solutions
+
+[**Share your process**]{.inline-red-highlight}
+
+8. One person in the group explains the problem & the selected 3 solutions
+:::
+:::::
+
+
+## Pick the problem
+
+::::: columns
+::: {.column width="50%"}
+
+*4-5 persons in one group*
+
+- **Brainstorming alone**: (3-5 min)
+
+  - make notes of your struggles
+  - What is the worst of all these problems to you?
+    - Pick only one!
+  - Prepare your pitch for your worst problem
+    - Why is your problem relevant to you?
+   
+:::
+::: {.column width="50%"}
+- **Pitch your problem to your group** (5-8 mins)
+
+  - 30-60s per problem
+  - What is the problem?
+  - Why does the problem matter?
+
+- **The group picks one problem** (2 mins)
+
+  - everyone has two votes
+  - the most picket problem wins
+  
+:::
+:::::
+
+  
+## Understand the problem
+
+- **15% solutions** (20 mins)
+
+  - Question: [**What can you already do without additional resources or external influences?**]{.inline-red-highlight}
+  
+  - Brainstorming alone: everyone takes notes by themselves (5 mins)
+  - Share your solutions to the group & ask questions (15 mins)
+  
+- **The problem giver picks 1-3 best solutions** (1 min)
+
+  - prepare your final notes and pick a group speaker
+  - Ever group has 3 min to share their picket problem and the picked solutions
+  
+## Share your process
+
+3 mins per groups
+
+![](images/share.png){width=80%}
+
 ::: set-custom-header
 Feedback
 :::
 
 # Feedback {background-color="var(--background)"}
+
+
+## Quick round of feedback
+
+::::: columns
+::: {.column width="40%"}
+![](images/in_progress.jpeg)
+:::
+::: {.column width="60%"}
+
+[**If you would give this workshop next:**]{.inline-red-highlight}
+
+- What 1-3 thinks would you **change**?
+
+- What 1-3 things would you **keep**?
+:::
+:::::
+
 
 ::: set-custom-header
 :::
@@ -752,18 +999,17 @@ Homepage: <https://methoden.amd.psychologie.uni-mainz.de/steinhilber/>
 Appendix
 :::
 
-# Appendix {.appendix background-color="var(--background)"}
+<!-- # Appendix {.appendix background-color="var(--background)"} -->
 
-##  {#slide-id1 .no-title data-menu-title="SPRT"}
+<!-- ##  {#slide-id1 .no-title data-menu-title="SPRT"} -->
 
 <!-- ![](images/sprt_formulas.png) -->
 
 ::::: columns
 ::: {.column width="50%"}
 :::
-
 ::: {.fragment .column width="50%"}
 :::
 :::::
 
--   [post-hoc analyses of QRP]{.inline-red-highlight}
+<!-- -   [post-hoc analyses of QRP]{.inline-red-highlight} -->
